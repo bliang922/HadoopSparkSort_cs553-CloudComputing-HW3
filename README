@@ -1,0 +1,62 @@
+srun -n 1 --pty /bin/bash
+
+**this run the hadoop sort on data-8GB, output data are in hadoopsort8GB.log
+cd /exports/git/bliang5/cs553-pa2b/hadoop/bin/
+./hadoop jar HadoopSort.jar HadoopSort /input/data-8GB /user/bliang5/output-hadoop>hadoopsort8GB.log
+
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-hadoop /user/bliang5/report-hadoop
+
+hadoop fs -get /user/bliang5/report-hadoop/part-r-00000
+
+
+
+**this run the spark sort on data-8GB, output data are in sparksort8GB.log
+cd /exports/git/bliang5/cs553-pa2b/spark/bin/
+./spark-shell -i sparksort8GB.scala>sparksort8GB.log
+
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-spark /user/bliang5/report-spark
+
+hadoop fs -get /user/bliang5/report-spark/part-r-00000
+
+
+
+**this run the hadoop sort on data-20GB, output data are in hadoopsort20GB.log
+cd /exports/git/bliang5/cs553-pa2b/hadoop/bin/
+./hadoop jar HadoopSort.jar HadoopSort /input/data-20GB /user/bliang5/output-hadoop>hadoopsort20GB.log
+
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-hadoop /user/bliang5/report-hadoop
+
+hadoop fs -get /user/bliang5/report-hadoop/part-r-00000
+
+
+
+**this run the spark sort on data-20GB, output data are in hadoopsort20GB.log
+cd /exports/git/bliang5/cs553-pa2b/spark/bin/
+
+./spark-shell -i sparksort20GB.scala>sparksort20GB.log
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-spark /user/bliang5/report-spark
+
+hadoop fs -get /user/bliang5/report-spark/part-r-00000
+
+
+
+
+
+***SAME SHELL COMMANDS FOR 20GB and 80GB. JUST CHANGE THE INPUT FILE AND LOG NAME FROM 8GB TO 80GB
+**this run the hadoop sort on data-80GB, output data are in hadoopsort80GB.log
+cd /exports/git/bliang5/cs553-pa2b/hadoop/bin/
+./hadoop jar HadoopSort.jar HadoopSort /input/data-80GB /user/bliang5/output-hadoop>hadoopsort80GB.log
+
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-hadoop /user/bliang5/report-hadoop
+
+hadoop fs -get /user/bliang5/report-hadoop/part-r-00000
+
+
+
+**this run the spark sort on data-80GB, output data are in hadoopsort80GB.log
+cd /exports/git/bliang5/cs553-pa2b/spark/bin/
+./spark-shell -i sparksort80GB.scala>sparksort80GB.log
+
+hadoop jar /opt/hadoop-2.9.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.0.jar teravalidate /user/bliang5/output-spark /user/bliang5/report-spark
+
+hadoop fs -get /user/bliang5/report-spark/part-r-00000
